@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITLE</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <!-- Include Highlight.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <!-- Enable Highlighting -->
+    <script>hljs.highlightAll();</script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        :root {
+            --dark-red: #FF5733;
+            --dark-yellow: #FFC300;
+            --dark-green: #28A745;
+
+            --light-red: #fdd9ca;
+            --light-yellow: #fff8ce;
+            --light-green: #d1ffde;
+
+            --primary-color: #2565ED;
+            --primary-variant: #f6faff;
+            --border-color: #CBD5E1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            background: none !important;
+            box-shadow: none !important;
+        }
+
+        .no-scrollbar {
+            overflow: auto; /* Enable scrolling */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
+        body {
+            margin: 0;
+            padding-left: 10vw;
+            padding-right: 10vw;
+            padding-top: 2vw;
+            padding-bottom: 0vw;
+            font-family: "Roboto", serif;
+            color: black;
+            background-color: var(--primary-variant);
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        ol {
+            list-style-position: inside;
+            list-style-type: decimal-leading-zero;
+        }
+
+        li {
+            line-height: 1.6;
+        }
+
+        .hide{
+            display: none;
+        }
+
+        .text-red {
+            color: var(--dark-red);
+        }
+
+        .text-yellow {
+            color: var(--dark-yellow);
+        }
+
+        .text-green {
+            color: var(--dark-green);
+        }
+
+        .border{
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px;
+        }
+
+        .container {
+            border: 1px solid var(--border-color) !important;
+            border-radius: 30px;
+            width: auto;
+            height: fit-content;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: white;
+        }
+
+        .block-heading {
+            font-weight: bold;
+            font-size: large;
+            margin-left: 10px;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .block-sub-heading {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .center {
+            width: 100%;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .index{
+            height: auto;
+            margin: 10px;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .question{
+            height: auto;
+            margin: 10px;
+            white-space: pre;
+            padding: 10px;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        .question pre{
+            white-space: normal;
+            word-wrap: break-word;
+            line-height: 1.5;
+            font-family: "Roboto", serif;
+        }
+
+        .code{
+            height: auto;
+            margin: 10px;
+            white-space: pre;
+            overflow-x: scroll;
+            background: #e1e2e3;
+        }
+
+        pre{
+            min-height: 100%;
+        }
+        code{
+            min-height: 100%;
+            display:inline;
+        }
+
+        .grid-container {
+            width: auto;
+            height: fit-content;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+        }
+
+        @media screen and (max-width:600px) {
+
+            body {
+                padding-top: 5vh;
+                padding-left: 5vw;
+                padding-right: 5vw;
+            }
+
+            .item {
+                grid-template-columns: auto;
+            }
+
+            .progress-bar {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+                padding: 5px;
+            }
+
+            .circular-progress-container {
+                margin: 0px;
+                row-gap: 10px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1 style="color: black; margin-bottom:20px;">Vemula Karthik</h1>
+    </header>
+
+    <!-- EASY QUESTIONS SECTION -->
+    <section class="container ">
+        <div class="block-heading">Easy</div>
+        <div class="grid-container">
+            
+                <div class="index no-scrollbar">1.</div>
+                <div class="question border no-scrollbar"><pre><h3>Replace High Frequency</h3>
+<p>Given a string text and a character replacement, find the most frequently occurring character in text and replace it with replacement.
+<MultiLineNote>
+- If multiple characters have the same frequency, choose the character with the lower ASCII value.
+- The replacement character will be between 'a' and 'z'.
+- All characters in text are lowercase.</MultiLineNote></p>
+<hr />
+<h4>Input Format</h4>
+<p>The input contains two lines:</p>
+<ul>
+<li>The first line contains the string text.</li>
+<li>The second line contains the character replacement.</li>
+</ul>
+<hr />
+<h4>Output Format</h4>
+<p>The output is a single string after replacement.</p>
+<hr />
+<h4>Constraints</h4>
+<ul>
+<li>0 <= length of string <= 10^5</li>
+</ul>
+<hr />
+<h4>Example</h4>
+<p>Input:</p>
+<p>aaabbaaacc
+p</p>
+<p>Output:</p>
+<p>pppbbpppcc</p>
+<p>Explanation:
+The character 'a' appears most frequently in text, and replacing 'a' with 'p' gives pppbbpppcc.</p></pre></div>
+                <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+i=input()
+p=input()
+m=set(i)
+num=0
+res=&#34;&#34;
+for v in m:
+    if i.count(v)&gt;num:
+        num=i.count(v)
+        letter=v
+    elif i.count(v)==num:
+        if ord(letter)&gt;ord(v):
+            letter=v
+    else:
+        pass
+for x in range(len(i)):
+    if i[x]==letter:
+        res+=p
+    else:
+        res+=i[x]
+print(res)        </code></pre></div>
+            
+                <div class="index no-scrollbar">2.</div>
+                <div class="question border no-scrollbar"><pre><h3>Vowel Count</h3>
+<p>Given a string txt, count the total number of vowels (A, E, I, O, U) in the string and print the count.</p>
+<p><MultiLineNote>
+- Input string txt contains only uppercase English letters.
+- Calculated value is within the integer range.
+</MultiLineNote><hr /></p>
+<h4>Input Format</h4>
+<ul>
+<li>Input is a single line, which contains a string txt.</li>
+</ul>
+<hr />
+<h4>Output Format</h4>
+<ul>
+<li>Print the total count of vowels.</li>
+</ul>
+<hr />
+<h4>Constraints</h4>
+<ul>
+<li>0 <=length(txt)<= 50</li>
+</ul>
+<hr />
+
+<h4>Explanation</h4>
+<p><strong>Input</strong></p>
+<p>HELLO</p>
+<p><strong>Output</strong></p>
+<p>2</p>
+<p>The input string contains one E and one O
+Total number of vowels = 2<hr /></p></pre></div>
+                <div class="code border no-scrollbar"><pre><code class="language-python"># Write your code here
+i=input()
+p=&#34;AEIOUaeiou&#34;
+count=0
+for x in i:
+    if x in p:
+        count+=1
+print(count)        </code></pre></div>
+            
+                <div class="index no-scrollbar">3.</div>
+                <div class="question border no-scrollbar"><pre><h3>Phone Digits</h3>
+<p>You're developing a software for converting phone numbers given verbally into their numeric equivalent for efficient data recording. The department often receives phone numbers spelled out digit by digit.
+<MultiLineNote>
+1. Contact numbers should always be ten digits long. Return "invalid input" if this is not the case.
+2. The entire input is in lowercase.</MultiLineNote><hr />
+<b>Input Format</b><br />
+The input is a line containing the phone number in words separated by spaces. <hr />
+<b>Output Format</b><br />
+Output the numeric format of the phone number in a single line. <hr />
+<b>Example</b><br /></p>
+<p>nine five six three three zero five nine two one</p>
+<p><b>Output</b><br/></p>
+<p>9563305921</p>
+<p><b>Explanation</b><br />
+The sequence of words "nine five six three three zero five nine two one" is converted into the numeric form 9563305921.</p>
+<hr /></pre></div>
+                <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+i=input().split()
+rex=&#34;&#34;
+for x in i:
+    if x==&#34;zero&#34;:
+        rex=&#34;0&#34;
+    elif x==&#34;one&#34;:
+        rex=&#34;1&#34;
+    elif x==&#34;two&#34;:
+        rex=&#34;2&#34;
+    elif x==&#34;three&#34;:
+        rex=&#34;3&#34;
+    elif x==&#34;four&#34;:
+        rex=&#34;4&#34;
+    elif x==&#34;five&#34;:
+        rex=&#34;5&#34;
+    elif x==&#34;six&#34;:
+        rex=&#34;6&#34;
+    elif x==&#34;seven&#34;:
+        rex=&#34;7&#34;
+    elif x==&#34;eight&#34;:
+        rex=&#34;8&#34;
+    elif x==&#34;nine&#34;:
+        rex=&#34;9&#34;
+    print(rex,end=&#34;&#34;)    </code></pre></div>
+            
+                <div class="index no-scrollbar">4.</div>
+                <div class="question border no-scrollbar"><pre><h3>Permutation Check</h3>
+<p>Write a program to check PermutationStrings that takes two strings as input from the user and determines if one string is a permutation of the other. PermutationStrings are strings that have the same characters with the same frequency but in any order. You should print YES if the input strings are PermutationStrings, otherwise print NO.</p>
+<p><MultiLineNote></p>
+<ol>
+<li>The program should treat strings as case-insensitive when determining if they are PermutationStrings. For example, GOD and dog should be recognized as PermutationStrings.
+</MultiLineNote></li>
+</ol>
+<hr />
+<h4>Input Format</h4>
+<ul>
+<li>First will have the number of test cases T.</li>
+<li>The first line of each test case consists of the first string.</li>
+<li>The second line of each test case consists of the second string.</li>
+</ul>
+<h4>Output Format</h4>
+<ul>
+<li>T lines containing YES or NO for each test case.</li>
+</ul>
+<hr />
+<h4>Constraints</h4>
+<ul>
+<li>Each word will consist of English alphabets which will be a mix of upper and lower case alphabets.</li>
+</ul>
+<hr />
+<h4>Example</h4>
+<h6>Input</h6>
+<pre class="codehilite"><code>2
+GOD
+dog
+LISTEN
+SILENT
+</code></pre>
+
+<h6>Output</h6>
+<pre class="codehilite"><code>YES
+YES
+</code></pre>
+
+<h6>Explanation</h6>
+<p>Testcase 1
+word1 = GOD
+word2 = dog
+Both words contain the same alphabets, so they are permutations.</p>
+<p>Testcase 2
+word1 = LISTEN
+word2 = SILENT
+Both words contain the same alphabets, so they are permutations.</p>
+<hr /></pre></div>
+                <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+i=int(input())
+for x in range(i):
+    num=True
+    p=list(set(input().lower()))
+    m=list(set(input().lower()))
+    if len(p)!=len(m):
+        print(&#34;NO&#34;)
+    else:
+        for y in p:
+            if y not in m:
+                num=False
+        for h in m:
+            if h not in p:
+                num=False
+        if num:
+            print(&#34;YES&#34;)
+        else:
+            print(&#34;NO&#34;)</code></pre></div>
+            
+        </div>
+    </section>
+
+    <!-- MEDIUM QUESTIONS SECTION -->
+    <section class="container ">
+        <div class="block-heading">Medium</div>
+        <div class="grid-container">
+            
+            <div class="index no-scrollbar">1.</div>
+            <div class="question border no-scrollbar"><pre><h3>Repeated Digits</h3>
+<p>Levi wants to find out the number of digits that appear more than once in a given integer P. The integer is provided in the form of a string. Determine and print the count of such digits.</p>
+<hr />
+<h4>Input Format</h4>
+<ul>
+<li>The input consists of a single string representing the integer P.</li>
+</ul>
+<hr />
+<h4>Output Format</h4>
+<ul>
+<li>The output is a single integer showing the count of repeated unique digits.</li>
+</ul>
+<hr />
+<h4>Constraints:</h4>
+<ul>
+<li>1 <= Length of string <= 10^9</li>
+</ul>
+<hr />
+<h4>Sample Input 1</h4>
+<p>987778</p>
+<h4>Sample Output 1</h4>
+<p>2</p>
+<h4>Explanation</h4>
+<p>In the first example P = 987778, the digits 7 and 8 are repeated. Thus, the output is 2.</p></pre></div>
+            <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+i=input()
+m=&#34;&#34;
+res=0
+for x in i:
+    if i.count(x)&gt;1 and x not in m:
+        res+=1
+        m+=x
+print(res)        </code></pre></div>
+            
+            <div class="index no-scrollbar">2.</div>
+            <div class="question border no-scrollbar"><pre><h3>Heights Count</h3>
+<p>You have N towers with given heights in a line, represented by space-separated integers. Create a program that sorts these heights and displays each height with its frequency.</p>
+<p><MultiLineNote>
+Heights include both positive and negative integers
+</MultiLineNote></p>
+<hr />
+<h4>Input Format</h4>
+<p>The input consists of space-separated integers.</p>
+<hr />
+<h4>Output Format</h4>
+<p>Each output line should show the height and its frequency in ascending order.</p>
+<hr />
+<h4>Explanation</h4>
+<p>For example, given heights are 2 7 2 -3 7 -3 4.</p>
+<p>The frequency of each height is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Height</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>The output should be:</p>
+<p>-3 2
+2 2
+4 1
+7 2</p>
+<hr /></pre></div>
+            <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+p=input().split()
+i=sorted(list(map(int, p)))
+m=[]
+for x in i:
+    if x not in m:
+        print(str(x)+&#34; &#34;+str(p.count(str(x))))
+        m.append(x)</code></pre></div>
+            
+            <div class="index no-scrollbar">3.</div>
+            <div class="question border no-scrollbar"><pre><h3>Letter Count</h3>
+<p>You are provided with a string input_str containing a mix of uppercase and lowercase alphabets. Your task is to display each character in lowercase with their count of occurrences in the order of their first occurence if a character appears more than once in the input_str.
+<MultiLineNote>1. Characters should be displayed in the order of their first appearance in the input_str.
+2. The input input_str should be treated as case-insensitive.</MultiLineNote></p>
+<hr />
+<p><b>Input Format</b><br /></p>
+<p>A string representing input_str.</p>
+<hr />
+<p><b>Output Format</b><br /></p>
+<p>The output should be formatted as "character-occurrence count" in separate lines.</p>
+<hr />
+<p><b>Example</b><br /></p>
+<p>Take the following example:</p>
+<p>AlphabetSoup</p>
+<p>Here, the input is "AlphabetSoup". The characters that occur more than once are a and p.
+So, the output will be:</p>
+<p>a-2
+p-2</p>
+<hr /></pre></div>
+            <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+i=input().lower()
+m=&#34;&#34;
+for x in i:
+    if i.count(x)&gt;1 and x not in m:
+        print(x+&#34;-&#34;+str(i.count(x)))
+        m+=x</code></pre></div>
+            
+        </div>
+    </section>
+
+    <!-- HARD QUESTIONS SECTION -->
+    <section class="container ">
+        <div class="block-heading">Hard</div>
+        <div class="grid-container">
+            
+            <div class="index no-scrollbar">1.</div>
+            <div class="question border no-scrollbar"><pre><h3>Word Frequency Analyzer</h3>
+<p>Write a program to find the word with the highest frequency of repeated characters from the string s. If multiple words have the same highest frequency of repeated characters, return the word that appears first.</p>
+<p><MultiLineNote></p>
+<p>Make sure to treat uppercase and lowercase characters as distinct when counting frequencies.
+</MultiLineNote></p>
+<hr />
+<h4>Input Format</h4>
+<ul>
+<li>A single line of text, referred to as s.</li>
+</ul>
+<h4>Output Format</h4>
+<ul>
+<li>The word with the highest frequency of repeated letters. If no such word is found, return '-1'.</li>
+</ul>
+<hr />
+<h4>Constraints</h4>
+<ul>
+<li>|s| âˆˆ [1, 10,000].</li>
+<li>Words are defined as sequences of alphabetic characters, separated by space.</li>
+<li>In case of a tie, return the first word that meets the condition.</li>
+</ul>
+<hr />
+<h4>Example</h4>
+<h6>Input</h6>
+<p>hello worrrlld</p>
+<h6>Output</h6>
+<p>worrrlld</p>
+<h6>Explanation</h6>
+<p>In hello letter l has highest frequency which is 2
+In worrrlld letter r has highest frequency which is 3</p>
+<p>Hence, output will be worrrlld.</p>
+<hr /></pre></div>
+            <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+i=input().split()
+count1=0
+for x in i:
+    count=0
+    for j in x:
+        if x.count(j)&gt;count:
+            count=x.count(j)
+    if count&gt;count1:
+        count1=count
+        word=x
+print(word)        </code></pre></div>
+            
+            <div class="index no-scrollbar">2.</div>
+            <div class="question border no-scrollbar"><pre><h3>Maximum Unique Length</h3>
+<p>Given a string S consisting of lowercase alphabets, write a program to find the length of the longest substring with unique characters in S.</p>
+<h4>Input Format</h4>
+<p>The input will be a single string S.</p>
+<h4>Output Format</h4>
+<p>The output will be an integer representing the length of the longest substring with unique characters.</p>
+<h4>Constraints</h4>
+<ul>
+<li>0 <= S.length <= 10^8</li>
+</ul>
+<h4>Explanation</h4>
+<p>Let's take an example:</p>
+<p>devawq</p>
+<p>In this case, the input "devawq" has the longest substring with unique characters as "devawq". The length of "devawq" is 6. Hence, the output is 6.</p></pre></div>
+            <div class="code border no-scrollbar"><pre><code class="language-python">#Write your code here
+i=input()
+substring=&#34;&#34;
+lil=[]
+for m in range(len(i)):
+    for x in i[m:]:
+        if x not in substring:
+            substring+=x
+        else:
+            lil.append(len(substring))
+            substring=x
+            
+print(max(lil))            
+</code></pre></div>
+            
+        </div>
+    </section>
+
+    <footer style="height: 50px;">
+
+    </footer>
+    <!-- Include Prism.js Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</body>
+
+</html>
